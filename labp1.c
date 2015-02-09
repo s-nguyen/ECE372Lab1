@@ -24,7 +24,7 @@ _CONFIG2( IESO_OFF & SOSCSEL_SOSC & WUTSEL_LEG & FNOSC_PRIPLL & FCKSM_CSDCMD & O
 typedef enum stateTypeEnum{
 
 
-    Led1, Led2
+    Led1, Led2, Debounce
 
 
 } stateType;
@@ -37,6 +37,7 @@ int main(void)
 
     initLEDs();
     initSW2();
+    initTimer1();
     curState = Led1;
     
     while(1)
@@ -55,6 +56,12 @@ int main(void)
                 LED2 = 0;
                 nextState = Led1;
                 break;
+            case(Debounce):
+                deBounce5ms();
+                if(PORTBbits.RB2 == 1){
+                    curState = nextState;
+                }
+                break;
             default:
                 curState = Led1;
                 break;
@@ -67,8 +74,6 @@ int main(void)
 void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;
-    if(PORTBbits.RB2 == 1){
-        curState = nextState;
-    }
+    curState = Debounce;
 
 }

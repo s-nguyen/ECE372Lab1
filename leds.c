@@ -21,21 +21,20 @@ void initLEDs(){
     ODCAbits.ODA0 = 1;
     ODCAbits.ODA1 = 1;
 
+    AD1PCFGbits.PCFG0 = 1;
+    AD1PCFGbits.PCFG1 = 1;
 
 }
 
 void initSW2(){
-
+    AD1PCFGbits.PCFG4 = 1;
     IFS1bits.CNIF = 0;
     IEC1bits.CNIE = 1;
 
-//Set pin to be digital
-    //Digial
+
     TRISBbits.TRISB2 = 1; //IO5
+    
     CNPU1bits.CN6PUE = 1;
-  //  ODCBbits.ODB6 = 0;
-    
-    
     CNEN1bits.CN6IE = 1;
     
 
