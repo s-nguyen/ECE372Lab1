@@ -2,7 +2,7 @@
 //
 // File:         lab1p1.c
 // Date:         
-// Authors:      
+// Authors:      Stephen Nguyen
 //
 // Description: Part 1 for lab 1
 // ******************************************************************************************* //
@@ -21,6 +21,17 @@ _CONFIG2( IESO_OFF & SOSCSEL_SOSC & WUTSEL_LEG & FNOSC_PRIPLL & FCKSM_CSDCMD & O
 
 // ******************************************************************************************* //
 
+typedef enum stateTypeEnum{
+
+
+    Led1, Led2
+
+
+} stateType;
+
+volatile stateType curState;
+volatile stateType nextState;
+
 int main(void)
 {
 
@@ -29,6 +40,20 @@ int main(void)
     {
         //TODO: Using a finite-state machine, define the behavior of the LEDs
         //Debounce the switch
+        switch(stateType){
+            case(Led1):
+                LED1 = 0;
+                LED2 = 1;
+                nextState = Led2;
+                break;
+            case(Led2):
+                LED1 = 1;
+                LED2 = 0;
+                nextState = Led1;
+                break;
+            default:
+                curState = Led1;
+        }
     }
     
     return 0;
@@ -36,5 +61,9 @@ int main(void)
 
 void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
+    IFS1bits.CNIF = 0;
+    if(PORTBbits.RB2 == 1){
+        curState = nextState;
+    }
 
 }
