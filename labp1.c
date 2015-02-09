@@ -35,12 +35,16 @@ volatile stateType nextState;
 int main(void)
 {
 
+    initLEDs();
+    initSW2();
+    curState = Led1;
     
     while(1)
     {
         //TODO: Using a finite-state machine, define the behavior of the LEDs
         //Debounce the switch
-        switch(stateType){
+        
+        switch(curState){
             case(Led1):
                 LED1 = 0;
                 LED2 = 1;
@@ -53,6 +57,7 @@ int main(void)
                 break;
             default:
                 curState = Led1;
+                break;
         }
     }
     

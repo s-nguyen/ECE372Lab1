@@ -9,6 +9,6 @@
 #include "timer.h"
 
 //Uses timer 2
-void delayUs(unsigned int delay){
+//void delayUs(unsigned int delay){
     //TODO: Create a delay using timer 2 for "delay" microseconds.
-}
+//}

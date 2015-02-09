@@ -18,16 +18,29 @@ void initLEDs(){
     LATAbits.LATA0 = 1;
     LATAbits.LATA1 = 1;
 
+    ODCAbits.ODA0 = 1;
+    ODCAbits.ODA1 = 1;
+
+
 }
 
 void initSW2(){
 
-    TRISBbits.TRISB2 = 1; //IO5
-
-
     IFS1bits.CNIF = 0;
     IEC1bits.CNIE = 1;
-    CNEN1bits.CN5IE = 1;
+
+//Set pin to be digital
+    //Digial
+    TRISBbits.TRISB2 = 1; //IO5
+    CNPU1bits.CN6PUE = 1;
+  //  ODCBbits.ODB6 = 0;
+    
+    
+    CNEN1bits.CN6IE = 1;
+    
+
+    
+
     //TODO: Initialize the appropriate pins to work with the external switch using a
     //change notification interrupt.
     
