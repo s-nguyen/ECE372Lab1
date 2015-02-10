@@ -37,7 +37,7 @@ int main(void)
 
     initLEDs();
     initSW2();
-    initTimer1();
+    initTimer2();
     curState = Led1;
     
     while(1)
@@ -57,7 +57,6 @@ int main(void)
                 nextState = Led1;
                 break;
             case(Debounce):
-                deBounce5ms();
                 if(PORTBbits.RB2 == 1){
                     curState = nextState;
                 }
