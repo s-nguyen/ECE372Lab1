@@ -12,6 +12,10 @@
 #define LCD_DATA   LATB
 #define LCD_RS  LATBbits.LATB7
 #define LCD_E   LATBbits.LATB6
+#define LCD_D7   LATBbits.LATB15
+#define LCD_D6  LATBbits.LATB14
+#define LCD_D5 LATBbits.LATB13
+#define LCD_D4 LATBbits.LATB12
 
 #define TRIS_D7  TRISBbits.TRISB15
 #define TRIS_D6  TRISBbits.TRISB14
@@ -67,14 +71,14 @@ void printCharLCD(char c) {
  */
 void initLCD(void) {
     // Setup D, RS, and E to be outputs (0).
-    LCD_DATA = LCD_DATA & 0x0FFF;
-    LCD_RS = 0;
-    LCD_E = 0;
+    LATB = 0;
+    TRIS_RS = 0;
+    TRIS_E = 0;
     // Initilization sequence utilizes specific LCD commands before the general configuration
     // commands can be utilized. The first few initilition commands cannot be done using the
     // WriteLCD function. Additionally, the specific sequence and timing is very important.
-    TRIS_D5 = 1;
-    TRIS_D4 = 1;
+    LCD_D5 = 1;
+    LCD_D4 = 1;
     LCD_E = 1; delayUs(1);
     LCD_E = 0; delayUs(1);
     delayUs(4100);
@@ -103,7 +107,7 @@ void initLCD(void) {
     writeLCD(0x06, LCD_WRITE_CONTROL, 40);
     // TODO: Display On/Off Control
         // Turn Display (D) On, Cursor (C) Off, and Blink(B) Off
-    writeLCD(0b00001100);
+    writeLCD(0b00001100, LCD_WRITE_CONTROL, 40);
 }
 
 /*
@@ -113,7 +117,10 @@ void initLCD(void) {
  */
 void printStringLCD(const char* s) {
     //TODO:
-    
+    while(s != '\0'){
+        writeLCD(*s, LCD_WRITE_DATA, 46);
+        s = s + 1;
+    }
 }
 
 /*
