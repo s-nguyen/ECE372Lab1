@@ -23,7 +23,7 @@ void initLEDs(){
 
     AD1PCFGbits.PCFG0 = 1;
     AD1PCFGbits.PCFG1 = 1;
-
+    
 }
 
 void initSW2(){

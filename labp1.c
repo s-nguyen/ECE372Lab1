@@ -9,7 +9,7 @@
 
 #include "p24fj64ga002.h"
 #include "leds.h"
-#include "timer.c"
+#include "timer.h"
 #include <stdio.h>
 
 
@@ -73,6 +73,8 @@ int main(void)
 void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;
+    delayUs(5000);
+    
     curState = Debounce;
 
 }
