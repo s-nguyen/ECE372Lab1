@@ -27,6 +27,7 @@ void initLEDs(){
 }
 
 void initSW2(){
+    //Set button to define
     AD1PCFGbits.PCFG4 = 1;
     IFS1bits.CNIF = 0;
     IEC1bits.CNIE = 1;

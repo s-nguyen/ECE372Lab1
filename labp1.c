@@ -37,7 +37,6 @@ int main(void)
 
     initLEDs();
     initSW2();
-    initTimer2();
     curState = Led1;
     
     while(1)
@@ -73,7 +72,7 @@ int main(void)
 void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;
-    delayUs(5000);
+    delay5ms();
     if(PORTBbits.RB5 == 1){
         curState = Debounce;
     }

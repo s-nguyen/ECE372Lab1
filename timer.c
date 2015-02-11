@@ -14,19 +14,26 @@
 //Uses timer 2
 
 void delayUs(unsigned int delay){
-    unsigned int prVal = (FCY*delay/1000000.0)/PRESCALE - 1.0; //(FCY*(delay/1000000)/PRESCALE) - 1;
-    PR2 = prVal;
-    //TODO: Create a delay using timer 2 for "delay" microseconds.
     TMR2 = 0;
+    PR2 = 14*delay;
     IFS0bits.T2IF = 0;
+    T2CONbits.TCKPS = 0x0;
+    T2CONbits.TON = 1;
+    while(IFS0bits.T2IF == 0);
+    T2CONbits.TON = 0;
+}
+
+void delay5ms(){
+    TMR2 = 0;
+    PR2 = (FCY*0.005)/PRESCALE - 1;
+    IFS0bits.T2IF = 0;
+    T2CONbits.TCKPS = 0b01;
+    T2CONbits.TON = 1;
     while(IFS0bits.T2IF == 0){
         //Do nothing
     }
+    T2CONbits.TON = 0;
 }
 
-void initTimer2(){
-    TMR2 = 0; //Reset the counter to 0
-    T2CONbits.TCKPS = 0b01; //1:256 prescale Value
-    IFS0bits.T2IF = 0; //Put down flag first
-    T2CONbits.TON = 1;
-}
+
+
