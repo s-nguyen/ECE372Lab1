@@ -74,7 +74,9 @@ void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;
     delayUs(5000);
+    if(PORTBbits.RB5 == 1){
+        curState = Debounce;
+    }
     
-    curState = Debounce;
 
 }
