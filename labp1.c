@@ -9,7 +9,7 @@
 
 #include "p24fj64ga002.h"
 #include "leds.h"
-#include "timer.c"
+#include "timer.h"
 #include <stdio.h>
 
 
@@ -37,7 +37,6 @@ int main(void)
 
     initLEDs();
     initSW2();
-    initTimer1();
     curState = Led1;
     
     while(1)
@@ -57,7 +56,6 @@ int main(void)
                 nextState = Led1;
                 break;
             case(Debounce):
-                deBounce5ms();
                 if(PORTBbits.RB2 == 1){
                     curState = nextState;
                 }
@@ -74,6 +72,10 @@ int main(void)
 void _ISR _CNInterrupt(void){
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;
-    curState = Debounce;
+    delay5ms();
+    if(PORTBbits.RB5 == 1){
+        curState = Debounce;
+    }
+    
 
 }

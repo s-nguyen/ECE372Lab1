@@ -9,8 +9,8 @@
 #define	INITTIMER_H
 
 void delayUs(unsigned int delay);
-void initTimer1();
-void deBounce5ms();
+void delay5ms();
+
 
 #endif	/* INITTIMER_H */
 

@@ -23,10 +23,11 @@ void initLEDs(){
 
     AD1PCFGbits.PCFG0 = 1;
     AD1PCFGbits.PCFG1 = 1;
-
+    
 }
 
 void initSW2(){
+    //Set button to define
     AD1PCFGbits.PCFG4 = 1;
     IFS1bits.CNIF = 0;
     IEC1bits.CNIE = 1;
