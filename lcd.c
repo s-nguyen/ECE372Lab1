@@ -1,6 +1,6 @@
 /*
  * File:   lcd.c
- * Authors:
+ * Authors: Stephen Nguyen
  *
  * Created on December 31, 2014, 1:39 PM
  */
@@ -9,26 +9,7 @@
 #include "lcd.h"
 #include "timer.h"
 
-#define LCD_DATA   LATB
-#define LCD_RS  LATBbits.LATB7
-#define LCD_E   LATBbits.LATB6
-#define LCD_D7   LATBbits.LATB15
-#define LCD_D6  LATBbits.LATB14
-#define LCD_D5 LATBbits.LATB13
-#define LCD_D4 LATBbits.LATB12
 
-#define TRIS_D7  TRISBbits.TRISB15
-#define TRIS_D6  TRISBbits.TRISB14
-#define TRIS_D5  TRISBbits.TRISB13
-#define TRIS_D4  TRISBbits.TRISB12
-#define TRIS_RS  TRISBbits.TRISB7
-#define TRIS_E   TRISBbits.TRISB6
-
-#define LCD_WRITE_DATA 1
-#define LCD_WRITE_CONTROL 0
-
-#define LOWER 1
-#define UPPER 0
 
 /* This function should take in a two-byte word and writes either the lower or upper
  * byte to the last four bits of LATB. Additionally, according to the LCD data sheet
@@ -41,10 +22,8 @@ void writeFourBits(unsigned char word, unsigned int commandType, unsigned int de
     //TODO:
     if(lower) {
         LCD_DATA = (LCD_DATA & 0x0FFF) | ((word & 0x0F) << 12);
-
     }
     else{
-      
         LCD_DATA = (LCD_DATA & 0x0FFF) | ((word & 0xF0) << 8);
     }
 
@@ -133,8 +112,8 @@ void printStringLCD(const char* s) {
     char c;
     while(*s != '\0'){
         c = *s;
-        writeLCD(c, LCD_WRITE_DATA, 46);
-        s = s + 1;
+        printCharLCD(c);
+        s = s + 1;      //Iterates through the pointer until a null is seen
     }
 }
 

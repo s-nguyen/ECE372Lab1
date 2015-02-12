@@ -76,6 +76,5 @@ void _ISR _CNInterrupt(void){
     if(PORTBbits.RB5 == 1){
         curState = Debounce;
     }
-    
-
+   
 }

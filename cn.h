@@ -7,8 +7,10 @@
 
 #ifndef INITCN_H
 #define	INITCN_H
+
 #define PRESSED 0
 #define RELEASED 1
 void initCNForSW1();
+void initSW2();
 #endif	/* INITCN_H */
 

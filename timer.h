@@ -10,6 +10,10 @@
 
 void delayUs(unsigned int delay);
 void delay5ms();
+void getTimedString(int watch, char* str);
+void initTimer1();
+
+
 
 
 #endif	/* INITTIMER_H */

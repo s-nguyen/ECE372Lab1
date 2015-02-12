@@ -13,7 +13,7 @@
 
 
 void initLEDs();
-void initSW2();
+
 
 #endif	/* LEDS_H */
 

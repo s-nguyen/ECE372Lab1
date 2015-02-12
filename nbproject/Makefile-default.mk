@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=timer.c leds.c lcd.c lab1p2.c
+SOURCEFILES_QUOTED_IF_SPACED=timer.c leds.c lcd.c stopwatchmain.c cn.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p2.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/timer.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/lab1p2.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/stopwatchmain.o ${OBJECTDIR}/cn.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/timer.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/stopwatchmain.o.d ${OBJECTDIR}/cn.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/lab1p2.o
+OBJECTFILES=${OBJECTDIR}/timer.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/stopwatchmain.o ${OBJECTDIR}/cn.o
 
 # Source Files
-SOURCEFILES=timer.c leds.c lcd.c lab1p2.c
+SOURCEFILES=timer.c leds.c lcd.c stopwatchmain.c cn.c
 
 
 CFLAGS=
@@ -103,12 +103,19 @@ ${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  lcd.c  -o ${OBJECTDIR}/lcd.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/lab1p2.o: lab1p2.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/stopwatchmain.o: stopwatchmain.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lab1p2.o.d 
-	@${RM} ${OBJECTDIR}/lab1p2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  lab1p2.c  -o ${OBJECTDIR}/lab1p2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lab1p2.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/lab1p2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/stopwatchmain.o.d 
+	@${RM} ${OBJECTDIR}/stopwatchmain.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  stopwatchmain.c  -o ${OBJECTDIR}/stopwatchmain.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stopwatchmain.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/stopwatchmain.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/cn.o: cn.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/cn.o.d 
+	@${RM} ${OBJECTDIR}/cn.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  cn.c  -o ${OBJECTDIR}/cn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/cn.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/cn.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/timer.o: timer.c  nbproject/Makefile-${CND_CONF}.mk
@@ -132,12 +139,19 @@ ${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  lcd.c  -o ${OBJECTDIR}/lcd.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/lab1p2.o: lab1p2.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/stopwatchmain.o: stopwatchmain.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lab1p2.o.d 
-	@${RM} ${OBJECTDIR}/lab1p2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  lab1p2.c  -o ${OBJECTDIR}/lab1p2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lab1p2.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/lab1p2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/stopwatchmain.o.d 
+	@${RM} ${OBJECTDIR}/stopwatchmain.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  stopwatchmain.c  -o ${OBJECTDIR}/stopwatchmain.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stopwatchmain.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/stopwatchmain.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/cn.o: cn.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/cn.o.d 
+	@${RM} ${OBJECTDIR}/cn.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  cn.c  -o ${OBJECTDIR}/cn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/cn.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/cn.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
