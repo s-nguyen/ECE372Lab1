@@ -41,8 +41,10 @@ void writeFourBits(unsigned char word, unsigned int commandType, unsigned int de
     //TODO:
     if(lower) {
         LCD_DATA = (LCD_DATA & 0x0FFF) | ((word & 0x0F) << 12);
+
     }
     else{
+      
         LCD_DATA = (LCD_DATA & 0x0FFF) | ((word & 0xF0) << 8);
     }
 
@@ -64,7 +66,6 @@ void writeLCD(unsigned char word, unsigned int commandType, unsigned int delayAf
 /* Given a character, write it to the LCD. RS should be set to the appropriate value.
  */
 void printCharLCD(char c) {
-    //TODO:
     writeLCD(c, LCD_WRITE_DATA, 46);
 }
 /*Initialize the LCD
@@ -72,42 +73,55 @@ void printCharLCD(char c) {
 void initLCD(void) {
     // Setup D, RS, and E to be outputs (0).
     LATB = 0;
+    TRIS_D7 = 0;
+    TRIS_D6 = 0;
+    TRIS_D5 = 0;
+    TRIS_D4 = 0;
     TRIS_RS = 0;
     TRIS_E = 0;
     // Initilization sequence utilizes specific LCD commands before the general configuration
     // commands can be utilized. The first few initilition commands cannot be done using the
     // WriteLCD function. Additionally, the specific sequence and timing is very important.
+    LCD_RS = 0;
     LCD_D5 = 1;
     LCD_D4 = 1;
     LCD_E = 1; delayUs(1);
     LCD_E = 0; delayUs(1);
-    delayUs(4100);
+  //  LCD_E = 1; delayUs(1);
+ //   LCD_E = 0; delayUs(1);
+    delayUs(4200);
     LCD_E = 1; delayUs(1);
     LCD_E = 0; delayUs(1);
-    delayUs(100);
+    delayUs(120);
     LCD_E = 1; delayUs(1);
     LCD_E = 0; delayUs(1);
+    delayUs(120);
     // Enable 4-bit interface
-    LCD_DATA = (LCD_DATA & 0x2FFF); //0010 for the D's
+    LCD_RS = 0;
+    LCD_D5 = 1;
+    LCD_D4 = 0;
     LCD_E = 1; delayUs(1);
     LCD_E = 0; delayUs(1);
-    delayUs(40);
+    delayUs(120);
+  
+    //delayUs(50);
     // Function Set (specifies data width, lines, and font.
-    writeLCD(0b00101100, LCD_WRITE_CONTROL, 40);
+    writeLCD(0b00101000, LCD_WRITE_CONTROL, 50);
     // 4-bit mode initialization is complete. We can now configure the various LCD
     // options to control how the LCD will function.
 
+
     // TODO: Display On/Off Control
         // Turn Display (D) Off
-    writeLCD(0x08, LCD_WRITE_CONTROL, 40);
+    writeLCD(0b00001000, LCD_WRITE_CONTROL, 50);
     // TODO: Clear Display (The delay is not specified in the data sheet at this point. You really need to have the clear display delay here.
-    writeLCD(0x01, LCD_WRITE_CONTROL, 1000);
+    writeLCD(0b00000001, LCD_WRITE_CONTROL, 2000);
     // TODO: Entry Mode Set
         // Set Increment Display, No Shift (i.e. cursor move)
-    writeLCD(0x06, LCD_WRITE_CONTROL, 40);
+    writeLCD(0b00000110, LCD_WRITE_CONTROL, 50);
     // TODO: Display On/Off Control
         // Turn Display (D) On, Cursor (C) Off, and Blink(B) Off
-    writeLCD(0b00001100, LCD_WRITE_CONTROL, 40);
+    writeLCD(0b00001100, LCD_WRITE_CONTROL, 50);
 }
 
 /*
@@ -116,9 +130,10 @@ void initLCD(void) {
  * Since a string is just a character array, try to be clever with your use of pointers.
  */
 void printStringLCD(const char* s) {
-    //TODO:
-    while(s != '\0'){
-        writeLCD(*s, LCD_WRITE_DATA, 46);
+    char c;
+    while(*s != '\0'){
+        c = *s;
+        writeLCD(c, LCD_WRITE_DATA, 46);
         s = s + 1;
     }
 }
@@ -127,7 +142,7 @@ void printStringLCD(const char* s) {
  * Clear the display.
  */
 void clearLCD(){
-    writeLCD(0x01, LCD_WRITE_CONTROL, 500);
+    writeLCD(0x01, LCD_WRITE_CONTROL, 2000);
 }
 
 /*
@@ -135,10 +150,10 @@ void clearLCD(){
  */
 void moveCursorLCD(unsigned char x, unsigned char y){
     if(y == 1){
-        writeLCD((0x80 + x), LCD_WRITE_CONTROL, 40);
+        writeLCD((0x80 + x), LCD_WRITE_CONTROL, 50);
     }
     else{
-        writeLCD((0xC0 + x), LCD_WRITE_CONTROL, 40);
+        writeLCD((0xC0 + x), LCD_WRITE_CONTROL, 50);
     }
 }
 

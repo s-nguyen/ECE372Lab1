@@ -24,10 +24,12 @@ _CONFIG2( IESO_OFF & SOSCSEL_SOSC & WUTSEL_LEG & FNOSC_PRIPLL & FCKSM_CSDCMD & O
 
 int main(void)
 {
-
+   
+    
+ 
     while(1)
     {
-       testLCD();
+      testLCD();
     }
     
     return 0;

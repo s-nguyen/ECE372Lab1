@@ -1,26 +1,26 @@
-Microchip Technology Inc, vv1.24 (0)
+Microchip Technology Inc, vv1.23 (A)
 
 Tool Name:
-  c:\program files (x86)\microchip\xc16\v1.24\bin\bin\..\bin/elf-ld.exe
+  c:\program files (x86)\microchip\xc16\v1.23\bin\bin\..\bin/elf-ld.exe
 
 Command:
   -p24FJ64GA002 \
   -o \
   dist/default/production/Lab1.production.elf \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/.. \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24E \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24H \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24H/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC30F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC30F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/.. \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24E \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24H \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24H/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC30F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC30F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33E \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC33E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/timer.o \
   build/default/production/leds.o \
   build/default/production/lcd.o \
@@ -48,10 +48,10 @@ Command:
 
 Archive member included because of file (symbol)
 
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                               (__resetPRI)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
-                              c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o) (__data_init_standard)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                              c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o) (__data_init_standard)
 
 
 Program Memory  [Origin = 0x200, Length = 0xa9fc]
@@ -60,10 +60,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
 .const                       0x29e                 0x8             0xc  (12)
-.text                        0x2a6               0x24a           0x36f  (879)
-.dinit                       0x4f0                 0x2             0x3  (3)
+.text                        0x2a6               0x25e           0x38d  (909)
+.dinit                       0x504                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):          0x46b  (1131) 1%
+                     Total program memory used (bytes):          0x489  (1161) 1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -95,15 +95,15 @@ External Symbols in Program Memory (by address):
                   0x00030a                  _writeLCD
                   0x00032a                  _printCharLCD
                   0x00033c                  _initLCD
-                  0x0003ba                  _printStringLCD
-                  0x0003d8                  _clearLCD
-                  0x0003e6                  _moveCursorLCD
-                  0x000410                  _testLCD
-                  0x00046c                  _delayUs
-                  0x00049a                  _delay5ms
-                  0x0004c2                  _initLEDs
-                  0x0004d8                  _initSW2
-                  0x0004ea                  _main
+                  0x0003c6                  _printStringLCD
+                  0x0003ec                  _clearLCD
+                  0x0003fa                  _moveCursorLCD
+                  0x000424                  _testLCD
+                  0x000480                  _delayUs
+                  0x0004ae                  _delay5ms
+                  0x0004d6                  _initLEDs
+                  0x0004ec                  _initSW2
+                  0x0004fe                  _main
 
 External Symbols in Program Memory (by name):
 
@@ -112,17 +112,17 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003d8                  _clearLCD
-                  0x00049a                  _delay5ms
-                  0x00046c                  _delayUs
+                  0x0003ec                  _clearLCD
+                  0x0004ae                  _delay5ms
+                  0x000480                  _delayUs
                   0x00033c                  _initLCD
-                  0x0004c2                  _initLEDs
-                  0x0004d8                  _initSW2
-                  0x0004ea                  _main
-                  0x0003e6                  _moveCursorLCD
+                  0x0004d6                  _initLEDs
+                  0x0004ec                  _initSW2
+                  0x0004fe                  _main
+                  0x0003fa                  _moveCursorLCD
                   0x00032a                  _printCharLCD
-                  0x0003ba                  _printStringLCD
-                  0x000410                  _testLCD
+                  0x0003c6                  _printStringLCD
+                  0x000424                  _testLCD
                   0x0002a6                  _writeFourBits
                   0x00030a                  _writeLCD
 
@@ -146,8 +146,8 @@ LOAD build/default/production/leds.o
 LOAD build/default/production/lcd.o
 LOAD build/default/production/lab1p2.o
                     0x0001                  __MPLAB_BUILD = 0x1
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libfx-elf.a
                     0xabfc                  __CONFIG2 = 0xabfc
                     0xabfe                  __CONFIG1 = 0xabfe
                     0x0001                  __NO_HANDLES = 0x1
@@ -166,11 +166,11 @@ LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
 
 .text             0x000200         0x9e
  *(.init)
- .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+ .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
                   0x000200                  __reset
                   0x00022c                  __psv_init
- .init            0x00023c         0x5e c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+ .init            0x00023c         0x5e c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
                   0x00023c                  __data_init_standard
                   0x00023c                  __data_init
  *(.user_init)
@@ -197,12 +197,12 @@ __CONFIG1         0x00abfe          0x2
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x14ac
+.debug_info       0x000000       0x14c0
  *(.debug_info)
- .debug_info      0x000000        0x36a build/default/production/timer.o
- .debug_info      0x00036a        0xa92 build/default/production/leds.o
- .debug_info      0x000dfc        0x5a0 build/default/production/lcd.o
- .debug_info      0x00139c        0x110 build/default/production/lab1p2.o
+ .debug_info      0x000000        0x36d build/default/production/timer.o
+ .debug_info      0x00036d        0xa91 build/default/production/leds.o
+ .debug_info      0x000dfe        0x5af build/default/production/lcd.o
+ .debug_info      0x0013ad        0x113 build/default/production/lab1p2.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x319
@@ -212,12 +212,12 @@ __CONFIG1         0x00abfe          0x2
  .debug_abbrev    0x0001db         0xf7 build/default/production/lcd.o
  .debug_abbrev    0x0002d2         0x47 build/default/production/lab1p2.o
 
-.debug_line       0x000000        0x5f8
+.debug_line       0x000000        0x640
  *(.debug_line)
  .debug_line      0x000000        0x130 build/default/production/timer.o
  .debug_line      0x000130        0x12f build/default/production/leds.o
- .debug_line      0x00025f        0x2ea build/default/production/lcd.o
- .debug_line      0x000549         0xaf build/default/production/lab1p2.o
+ .debug_line      0x00025f        0x332 build/default/production/lcd.o
+ .debug_line      0x000591         0xaf build/default/production/lab1p2.o
 
 .debug_frame      0x000000        0x120
  *(.debug_frame)
@@ -1096,9 +1096,9 @@ __CONFIG1         0x00abfe          0x2
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
 START GROUP
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/default/production/Lab1.production.elf elf32-pic30)
 LOAD default_isr
@@ -1116,41 +1116,41 @@ LOAD data_init
                   0x000221         0x12 build/default/production/lab1p2.o
 
 __c30_signature
-                  0x000233         0x24
+                  0x000234         0x24
  __c30_signature
-                  0x000233          0x6 build/default/production/timer.o
+                  0x000234          0x6 build/default/production/timer.o
  __c30_signature
-                  0x000239          0x6 build/default/production/leds.o
+                  0x00023a          0x6 build/default/production/leds.o
  __c30_signature
-                  0x00023f          0x6 build/default/production/lcd.o
+                  0x000240          0x6 build/default/production/lcd.o
  __c30_signature
-                  0x000245          0x6 build/default/production/lab1p2.o
+                  0x000246          0x6 build/default/production/lab1p2.o
  __c30_signature
-                  0x00024b          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x00024c          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000251          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x000252          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
 
 .const              0x829e          0x8 load address 0x00029e  
  .const             0x829e          0x8 build/default/production/lcd.o
 
-.text             0x0002a6        0x24a
- .text            0x0002a6        0x1c6 build/default/production/lcd.o
+.text             0x0002a6        0x25e
+ .text            0x0002a6        0x1da build/default/production/lcd.o
                   0x0002a6                  _writeFourBits
                   0x00030a                  _writeLCD
                   0x00032a                  _printCharLCD
                   0x00033c                  _initLCD
-                  0x0003ba                  _printStringLCD
-                  0x0003d8                  _clearLCD
-                  0x0003e6                  _moveCursorLCD
-                  0x000410                  _testLCD
- .text            0x00046c         0x56 build/default/production/timer.o
-                  0x00046c                  _delayUs
-                  0x00049a                  _delay5ms
- .text            0x0004c2         0x28 build/default/production/leds.o
-                  0x0004c2                  _initLEDs
-                  0x0004d8                  _initSW2
- .text            0x0004ea          0x6 build/default/production/lab1p2.o
-                  0x0004ea                  _main
+                  0x0003c6                  _printStringLCD
+                  0x0003ec                  _clearLCD
+                  0x0003fa                  _moveCursorLCD
+                  0x000424                  _testLCD
+ .text            0x000480         0x56 build/default/production/timer.o
+                  0x000480                  _delayUs
+                  0x0004ae                  _delay5ms
+ .text            0x0004d6         0x28 build/default/production/leds.o
+                  0x0004d6                  _initLEDs
+                  0x0004ec                  _initSW2
+ .text            0x0004fe          0x6 build/default/production/lab1p2.o
+                  0x0004fe                  _main
 
-.dinit            0x0004f0          0x2
- .dinit           0x0004f0          0x2 data_init
+.dinit            0x000504          0x2
+ .dinit           0x000504          0x2 data_init

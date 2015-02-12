@@ -19,7 +19,9 @@ void delayUs(unsigned int delay){
     IFS0bits.T2IF = 0;
     T2CONbits.TCKPS = 0x0;
     T2CONbits.TON = 1;
-    while(IFS0bits.T2IF == 0);
+    while(IFS0bits.T2IF == 0){
+        
+    }
     T2CONbits.TON = 0;
 }
 
