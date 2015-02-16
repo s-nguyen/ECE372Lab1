@@ -51,10 +51,10 @@ int main(void)
             case(Stop):
                 LED1 = 0;
                 LED2 = 1;
-                moveCursorLCD(0,1);     //Always move cursor to correct position before printing
+                moveCursorLCD(0,0);     //Always move cursor to correct position before printing
                 printStringLCD("Stopped:");
                 getTimedString(watch, s); //Function to turn time into string and set into s
-                moveCursorLCD(0,2);
+                moveCursorLCD(1,0);
                 printStringLCD(s);
                 if(reset != 1){         //Don't set nextState if reset is activated, want to go to the same state when reseted
                   nextState = Run;
@@ -63,10 +63,10 @@ int main(void)
             case(Run):
                 LED1 = 1;
                 LED2 = 0;
-                moveCursorLCD(0,1);
+                moveCursorLCD(0,0);
                 printStringLCD("Running:");
                 getTimedString(watch, s);
-                moveCursorLCD(0,2);
+                moveCursorLCD(1, 0);
                 printStringLCD(s);
                 nextState = Stop;
                 break;
