@@ -1,6 +1,6 @@
 /* 
  * File:   stopwatchmain.c
- * Author: Stephen
+ * Author: Stephen Nguyen
  *
  * Created on February 11, 2015, 8:23 PM
  */
