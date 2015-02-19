@@ -42,12 +42,22 @@ int main(void)
     initTimer1();
     initCNForSW1();
     
-    curState = Stop;
+    curState = Run;
     watch = 0;
     
     while(1)
     {
         switch(curState){
+            case(Run):
+                LED1 = 1;
+                LED2 = 0;
+                moveCursorLCD(0,0);
+                printStringLCD("Running:");
+                getTimedString(watch, s);
+                moveCursorLCD(1, 0);
+                printStringLCD(s);
+                nextState = Stop;
+                break;
             case(Stop):
                 LED1 = 0;
                 LED2 = 1;
@@ -60,23 +70,13 @@ int main(void)
                   nextState = Run;
                 }
                 break;
-            case(Run):
-                LED1 = 1;
-                LED2 = 0;
-                moveCursorLCD(0,0);
-                printStringLCD("Running:");
-                getTimedString(watch, s);
-                moveCursorLCD(1, 0);
-                printStringLCD(s);
-                nextState = Stop;
-                break;
             case(Debounce):
-                if(PORTBbits.RB2 == 1 || PORTBbits.RB5 == 1){
+                if(BUTTON == RELEASED || RESET == RELEASED){
                     curState = nextState;
                 }
                 break;
             default:
-                curState = Stop;
+                curState = Run;
                 break;
         }
     }
@@ -88,18 +88,18 @@ void _ISR _CNInterrupt(void){
     IFS1bits.CNIF = 0;
     delay5ms();
     
-    if(PORTBbits.RB5 == 0 && curState == Stop){ //Only Reset on button press during Stop stage
+    if(RESET == PRESSED && curState == Stop){ //Only Reset on button press during Stop stage
         curState = Debounce;
         nextState = Stop;
         watch = 0;
     }
-    if(PORTBbits.RB5 == 0){ //Reset flag should go up regardless of state when SW1 is pressed
+    if(RESET == PRESSED){ //Reset flag should go up regardless of state when SW1 is pressed
         reset = 1;
     }
-    else if(PORTBbits.RB2 == 1 && reset != 1){  //Don't allow this to work if reset flag is high
+    else if(BUTTON == RELEASED && reset != 1){  //Don't allow this to work if reset flag is high
         curState = Debounce;
     }
-    else if(PORTBbits.RB5 == 1){        //Put flag down when button is released.
+    else if(RESET == RELEASED){        //Put flag down when button is released.
         reset = 0;
     }
 }

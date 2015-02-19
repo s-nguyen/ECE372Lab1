@@ -10,6 +10,8 @@
 
 #define PRESSED 0
 #define RELEASED 1
+#define BUTTON PORTBbits.RB2
+#define RESET PORTBbits.RB5
 void initCNForSW1();
 void initSW2();
 #endif	/* INITCN_H */

@@ -18,8 +18,9 @@
  * The command type is a simplification. From the data sheet, the RS is '1'
  * when you are simply writing a character. Otherwise, RS is '0'.
  */
+
+//Writes 4 bits to the LCD using bit masking
 void writeFourBits(unsigned char word, unsigned int commandType, unsigned int delayAfter, unsigned int lower){
-    //TODO:
     if(lower) {
         LCD_DATA = (LCD_DATA & 0x0FFF) | ((word & 0x0F) << 12);
     }
@@ -36,6 +37,8 @@ void writeFourBits(unsigned char word, unsigned int commandType, unsigned int de
 /* Using writeFourBits, this function should write the two bytes of a character
  * to the LCD.
  */
+
+//Writes Most significant 4 bits first then the least 4
 void writeLCD(unsigned char word, unsigned int commandType, unsigned int delayAfter){
     //TODO:
     writeFourBits(word, commandType, delayAfter, UPPER);
@@ -108,6 +111,7 @@ void initLCD(void) {
  * the cursor increments its position automatically.
  * Since a string is just a character array, try to be clever with your use of pointers.
  */
+
 void printStringLCD(const char* s) {
     char c;
     while(*s != '\0'){
@@ -127,6 +131,8 @@ void clearLCD(){
 /*
  Use the command for changing the DD RAM address to put the cursor somewhere.
  */
+
+//since 0b01xxxxxx is write DD ram command the second row will have a bit indicating 40
 void moveCursorLCD(unsigned char x, unsigned char y){
     if(x == 1){ //Second Row
         writeLCD((0xC0 + y), LCD_WRITE_CONTROL, 50);
